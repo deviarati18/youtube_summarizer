@@ -12,7 +12,7 @@ def get_image_base64(image_path):
 def main():       
     # Define the title text and local image path
     title_text = "SunTec Video Summarizer"
-    image_path = "D:/suntec_6.png"  # Replace with the actual path to your local image
+    image_path = "suntec_6.png"  # Replace with the actual path to your local image
 
     # Use HTML and CSS to style the title and image
     html_code = f"""

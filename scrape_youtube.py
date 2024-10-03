@@ -41,9 +41,8 @@ def download_thumbnail(video_id):
     with open('thumbnail.jpg', 'wb') as handler:
         handler.write(img_data)     
         
-def get_transcript(video_id):
+def get_transcript(video_id):    
     
-    st.write(f"Video ID: {video_id}")  # Log the video ID to ensure it's correct
     try:
         transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['en'])
         return transcript

@@ -42,10 +42,15 @@ def download_thumbnail(video_id):
         handler.write(img_data)     
         
 def get_transcript(video_id):
-    transcript_raw = YouTubeTranscriptApi.get_transcript(video_id, languages=['en', 'es', 'ko'])
-    transcript_str_lst = [i['text'] for i in transcript_raw]
-    transcript_full = ' '.join(transcript_str_lst)
-    return transcript_full
+    
+    st.write(f"Video ID: {video_id}")  # Log the video ID to ensure it's correct
+    try:
+        transcript = YouTubeTranscriptApi.get_transcript(video_id, languages=['en'])
+        return transcript
+    except TranscriptsDisabled:
+        st.error("Transcripts are disabled for this video. Please try another video.")
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
